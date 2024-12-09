@@ -2,7 +2,14 @@ use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
 
-pub fn main() -> io::Result<usize> {
+pub fn main() {
+    match run() {
+        Ok(safe_reports) => println!("Number of safe reports: {}", safe_reports),
+        Err(e) => eprintln!("Them elves got it wrong: {}", e),
+    }
+}
+
+fn run() -> io::Result<usize> {
     let path = Path::new("./puzzle_inputs/day_two_reports.txt");
     let file = File::open(path)?;
     let reader = io::BufReader::new(file);
@@ -13,10 +20,8 @@ pub fn main() -> io::Result<usize> {
         .filter(|line| is_safe_report(line))
         .count();
 
-    println!("Number of safe reports: {}", safe_reports);
     Ok(safe_reports)
 }
-
 fn is_safe_report(report: &str) -> bool {
     let levels: Vec<i32> = report
         .split_whitespace()
