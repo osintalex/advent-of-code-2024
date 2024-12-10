@@ -72,7 +72,6 @@ fn check_xmas(grid: &[Vec<char>], row_number: i32, col_number: i32, rows: i32, c
 #[cfg(test)]
 mod tests {
     use super::check_xmas;
-
     #[test]
     fn test_check_xmas_grid_search() {
         let grid = vec![
@@ -82,7 +81,6 @@ mod tests {
             vec!['S', 'S', 'X', 'S', 'S'],
             vec!['X', 'M', 'A', 'S', 'X'],
         ];
-
         assert_eq!(check_xmas(&grid, 0, 0, 5, 5), 1); // Horizontal XMAS
         assert_eq!(check_xmas(&grid, 0, 4, 5, 5), 1); // Vertical XMAS
         assert_eq!(check_xmas(&grid, 4, 0, 5, 5), 1); // Diagonal XMAS
