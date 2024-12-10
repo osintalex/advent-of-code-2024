@@ -54,3 +54,19 @@ fn is_valid_order(update: &[u8], rules: &HashMap<u8, HashSet<u8>>) -> bool {
     }
     true
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_valid_order() {
+        let mut rules = HashMap::new();
+        rules.insert(2u8, HashSet::from_iter([4u8, 8u8].into_iter()));
+
+        assert!(is_valid_order(&[1, 2, 3, 4], &rules));
+        assert!(is_valid_order(&[2, 4, 1, 3], &rules));
+        assert!(is_valid_order(&[3, 1, 2, 4], &rules));
+        assert!(!is_valid_order(&[8, 1, 3, 2, 4], &rules));
+        assert!(!is_valid_order(&[4, 2, 3], &rules));
+    }
+}
