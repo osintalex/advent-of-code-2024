@@ -22,7 +22,7 @@ fn process_corrupted_memory(input: &str) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::process_corrupted_memory;
     #[test]
     fn test_process_corrupted_memory() {
         let input = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
