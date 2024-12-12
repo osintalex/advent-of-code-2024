@@ -83,7 +83,7 @@ mod tests {
         ];
         assert_eq!(check_xmas(&grid, 0, 0, 5, 5), 1); // Horizontal XMAS
         assert_eq!(check_xmas(&grid, 0, 4, 5, 5), 1); // Vertical XMAS
-        assert_eq!(check_xmas(&grid, 4, 0, 5, 5), 1); // Diagonal XMAS
+        assert_eq!(check_xmas(&grid, 4, 0, 5, 5), 1); // Horizontal XMAS
         assert_eq!(check_xmas(&grid, 2, 2, 5, 5), 0); // No XMAS
         assert_eq!(check_xmas(&grid, 1, 1, 5, 5), 0); // Partial XMAS (XM only)
     }
